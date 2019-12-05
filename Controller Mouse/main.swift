@@ -108,7 +108,12 @@ let controllerManager = ControllerManager(withDelegate: delegateObject)
 let timer = Timer(timeInterval: 0.001, repeats: true) { (timer) in
     guard let dState = delegateObject.lastLeftAnalogState else { return }
 
-    guard var cursor = delegateObject.cursorLocation, let x = dState.xAxis, let y = dState.yAxis else { delegateObject.cursorLocation = NSEvent.mouseLocation; return }
+    guard var cursor = delegateObject.cursorLocation, let x = dState.xAxis, let y = dState.yAxis else {
+        var mouseLocation = NSEvent.mouseLocation
+        mouseLocation.y = (NSScreen.main?.frame ?? .zero).height - mouseLocation.y
+        delegateObject.cursorLocation = mouseLocation
+        return
+    }
 
     guard abs(x) > 0, abs(y) > 0 else { return }
 
@@ -118,6 +123,8 @@ let timer = Timer(timeInterval: 0.001, repeats: true) { (timer) in
     CGWarpMouseCursorPosition(cursor)
 
     delegateObject.cursorLocation = cursor
+    
+    print(cursor)
 }
 
 
