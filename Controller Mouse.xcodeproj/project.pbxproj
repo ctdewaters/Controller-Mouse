@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8CF50F523994DA2006383E3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF50F423994DA2006383E3 /* main.swift */; };
+		B8CF50FC23994DB8006383E3 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF50FB23994DB8006383E3 /* ControllerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		B8CF50F123994DA2006383E3 /* Controller Mouse */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Controller Mouse"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF50F423994DA2006383E3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B8CF50FB23994DB8006383E3 /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				B8CF50F423994DA2006383E3 /* main.swift */,
+				B8CF50FB23994DB8006383E3 /* ControllerManager.swift */,
 			);
 			path = "Controller Mouse";
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8CF50F523994DA2006383E3 /* main.swift in Sources */,
+				B8CF50FC23994DB8006383E3 /* ControllerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +250,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AP48SCT3J2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CollinDeWaters.Controller-Mouse";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -257,6 +262,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AP48SCT3J2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CollinDeWaters.Controller-Mouse";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
