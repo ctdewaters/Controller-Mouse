@@ -13,7 +13,6 @@ import Cocoa
 let app = NSApplication.shared
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
     //MARK: - NSApplicationDelegate
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.stop(nil)
@@ -27,9 +26,39 @@ class ControllerManagerDelegateObject: ControllerManagerDelegate {
     var lastLeftAnalogState: ControllerInput.DirectionalState?
     var cursorLocation: NSPoint?
     let mouseClickEventSource = CGEventSource(stateID: .hidSystemState)
+    var shouldResetCursor = true
     
     //MARK: - Initialization
-    init() {}
+    init() {
+        self.timer = Timer(timeInterval: 0.0001, repeats: true, block: { (timer) in
+            guard let dState = self.lastLeftAnalogState else { return }
+
+            guard !self.shouldResetCursor, var cursor = self.cursorLocation, let x = dState.xAxis, let y = dState.yAxis else {
+                var mouseLocation = NSEvent.mouseLocation
+                mouseLocation.y = (NSScreen.main?.frame ?? .zero).height - mouseLocation.y
+                self.cursorLocation = mouseLocation
+                self.shouldResetCursor = false
+                return
+            }
+
+            guard abs(x) > 0, abs(y) > 0 else {
+                //Reset the cursor location.
+                self.shouldResetCursor = true
+                return
+            }
+
+            let multiplier: CGFloat = 0.25
+            cursor.x += CGFloat(x) * multiplier
+            cursor.y += -CGFloat(y) * multiplier
+
+            CGWarpMouseCursorPosition(cursor)
+
+            self.cursorLocation = cursor
+            self.shouldResetCursor = false
+            
+            print(cursor)
+        })
+    }
     
     //MARK: - ControllerManagerDelegate
     func controllerDidConnect(_ controller: GCController) {
@@ -39,7 +68,7 @@ class ControllerManagerDelegateObject: ControllerManagerDelegate {
     func controllerDidDisconnect(_ controller: GCController) {
         print(controller)
     }
-    
+        
     func controllerDirectionalInputValueDidChange(_ controller: GCController?, ofDPadType dPadType: Button, andState directionalState: ControllerInput.DirectionalState) {
         
         if dPadType == .leftAnalog {
@@ -98,35 +127,11 @@ app.setActivationPolicy(.regular)
 app.delegate = delegate
 app.run()
 
-toggleDockIcon(showIcon: false)
+_ = toggleDockIcon(showIcon: false)
 
 
 let delegateObject = ControllerManagerDelegateObject()
 let controllerManager = ControllerManager(withDelegate: delegateObject)
 
-
-let timer = Timer(timeInterval: 0.001, repeats: true) { (timer) in
-    guard let dState = delegateObject.lastLeftAnalogState else { return }
-
-    guard var cursor = delegateObject.cursorLocation, let x = dState.xAxis, let y = dState.yAxis else {
-        var mouseLocation = NSEvent.mouseLocation
-        mouseLocation.y = (NSScreen.main?.frame ?? .zero).height - mouseLocation.y
-        delegateObject.cursorLocation = mouseLocation
-        return
-    }
-
-    guard abs(x) > 0, abs(y) > 0 else { return }
-
-    cursor.x += CGFloat(x)
-    cursor.y += -CGFloat(y)
-
-    CGWarpMouseCursorPosition(cursor)
-
-    delegateObject.cursorLocation = cursor
-    
-    print(cursor)
-}
-
-
-RunLoop.main.add(timer, forMode: .default)
+RunLoop.main.add(delegateObject.timer!, forMode: .default)
 RunLoop.main.run()

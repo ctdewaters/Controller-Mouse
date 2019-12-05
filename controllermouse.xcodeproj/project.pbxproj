@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B8CF50F123994DA2006383E3 /* Controller Mouse */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Controller Mouse"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8CF50F123994DA2006383E3 /* controllermouse */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = controllermouse; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF50F423994DA2006383E3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B8CF50FB23994DB8006383E3 /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,7 +43,7 @@
 		B8CF50E823994DA2006383E3 = {
 			isa = PBXGroup;
 			children = (
-				B8CF50F323994DA2006383E3 /* Controller Mouse */,
+				B8CF50F323994DA2006383E3 /* controllermouse */,
 				B8CF50F223994DA2006383E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,26 +51,26 @@
 		B8CF50F223994DA2006383E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8CF50F123994DA2006383E3 /* Controller Mouse */,
+				B8CF50F123994DA2006383E3 /* controllermouse */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8CF50F323994DA2006383E3 /* Controller Mouse */ = {
+		B8CF50F323994DA2006383E3 /* controllermouse */ = {
 			isa = PBXGroup;
 			children = (
 				B8CF50F423994DA2006383E3 /* main.swift */,
 				B8CF50FB23994DB8006383E3 /* ControllerManager.swift */,
 			);
-			path = "Controller Mouse";
+			path = controllermouse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8CF50F023994DA2006383E3 /* Controller Mouse */ = {
+		B8CF50F023994DA2006383E3 /* controllermouse */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8CF50F823994DA2006383E3 /* Build configuration list for PBXNativeTarget "Controller Mouse" */;
+			buildConfigurationList = B8CF50F823994DA2006383E3 /* Build configuration list for PBXNativeTarget "controllermouse" */;
 			buildPhases = (
 				B8CF50ED23994DA2006383E3 /* Sources */,
 				B8CF50EE23994DA2006383E3 /* Frameworks */,
@@ -80,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = "Controller Mouse";
+			name = controllermouse;
 			productName = "Controller Mouse";
-			productReference = B8CF50F123994DA2006383E3 /* Controller Mouse */;
+			productReference = B8CF50F123994DA2006383E3 /* controllermouse */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B8CF50EC23994DA2006383E3 /* Build configuration list for PBXProject "Controller Mouse" */;
+			buildConfigurationList = B8CF50EC23994DA2006383E3 /* Build configuration list for PBXProject "controllermouse" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8CF50F023994DA2006383E3 /* Controller Mouse */,
+				B8CF50F023994DA2006383E3 /* controllermouse */,
 			);
 		};
 /* End PBXProject section */
@@ -251,7 +251,7 @@
 				DEVELOPMENT_TEAM = AP48SCT3J2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CollinDeWaters.Controller-Mouse";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = controllermouse;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -263,7 +263,7 @@
 				DEVELOPMENT_TEAM = AP48SCT3J2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CollinDeWaters.Controller-Mouse";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = controllermouse;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -271,7 +271,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B8CF50EC23994DA2006383E3 /* Build configuration list for PBXProject "Controller Mouse" */ = {
+		B8CF50EC23994DA2006383E3 /* Build configuration list for PBXProject "controllermouse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8CF50F623994DA2006383E3 /* Debug */,
@@ -280,7 +280,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8CF50F823994DA2006383E3 /* Build configuration list for PBXNativeTarget "Controller Mouse" */ = {
+		B8CF50F823994DA2006383E3 /* Build configuration list for PBXNativeTarget "controllermouse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8CF50F923994DA2006383E3 /* Debug */,
